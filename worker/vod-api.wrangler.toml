@@ -1,0 +1,8 @@
+name = "tvbox-vod-api"
+main = "src/vod-api.js"
+compatibility_date = "2024-11-01"
+
+# 自定义域名（需在 Cloudflare 托管域名下）
+# [[routes]]
+# pattern = "vod.yourdomain.com"
+# custom_domain = true
