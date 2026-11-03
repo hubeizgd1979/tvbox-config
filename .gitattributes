@@ -1,0 +1,14 @@
+# 统一用 LF 换行。
+# 原因：Windows 上 Git 默认会把 LF 转成 CRLF，若 shell 脚本被转成 CRLF，
+# 在 GitHub Actions (Linux) 上执行会报 `bad interpreter: /bin/bash^M`。
+* text=auto eol=lf
+
+*.py text eol=lf
+*.js text eol=lf
+*.json text eol=lf
+*.toml text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+*.m3u text eol=lf
