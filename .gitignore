@@ -1,0 +1,13 @@
+node_modules/
+.wrangler/
+__pycache__/
+*.pyc
+.DS_Store
+
+# 注意：dist/ 绝不能被忽略！
+# 方案 A 的原理是把产物提交进仓库，让 raw.githubusercontent.com 直接读它。
+# 如果 dist/ 被 ignore，Actions 里的 `git add dist/` 会失败，产物永远推不上去。
+
+# 防止 shell 重定向误产生的空文件
+push
+鎺ㄥ洖
