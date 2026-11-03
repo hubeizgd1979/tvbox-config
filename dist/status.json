@@ -1,17 +1,17 @@
 {
-  "updated_at": "2026-11-03 09:51:46",
+  "updated_at": "2026-11-03 17:44:44",
   "upstreams_ok": 2,
   "upstreams_total": 2,
-  "sites": 165,
-  "parses": 49,
-  "live_channels": 133,
+  "sites": 164,
+  "parses": 50,
+  "live_channels": 121,
   "jar_votes": {
-    "http://oss4liview.moji.com/thd_file/2026/11/02/c9050ddf2e4eb65bc925f27924695099.jpg;md5;a5006e8f9c77331a30309c0e5f138481": 83,
+    "http://oss4liview.moji.com/thd_file/2026/11/03/b1838e86a7164d1031cb5940af34ad7c.jpg;md5;a1dadb8ef5197d9ee9c8fde926aae2e2": 82,
     "http://home.jundie.top:81/jar/top98_1.jar": 10,
     "http://xhztv.top/xhz/Yoursmile.jar": 37,
     "https://qist.wyfc.qzz.io/xiaosa/spider.jar": 12,
     "https://qist.wyfc.qzz.io/jar/fan.txt": 1,
-    "http://118.89.172.248:8025/jar/tan.php": 3,
+    "http://118.89.172.248:8025/jar/tan.php": 1,
     "http://xhztv.top/xhz/Yoursmile.jar;md5;69DADB9A99A618EA9E2F4E2B92968E41": 4
   }
 }
