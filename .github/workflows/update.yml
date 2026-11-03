@@ -1,0 +1,87 @@
+name: 更新 TVBox 配置
+
+on:
+  schedule:
+    # GitHub Actions 的 cron 是 UTC。这条 = 每天 UTC 01:00 / 09:00 / 17:00
+    # 即北京时间 09:00 / 17:00 / 次日01:00
+    #
+    # 注意：GitHub 对公共仓库的 schedule 任务是「空闲 60 天后自动停用」，
+    # 且无活动时可能延迟触发。真正的兜底是下面那个「每天定点自愈」的
+    # commit 检查任务 —— 它只要仓库有任何活动就会被触发。
+    - cron: '0 1,9,17 * * *'
+  workflow_dispatch:
+    inputs:
+      check:
+        description: '同时校验 type=1 接口存活'
+        type: boolean
+        default: false
+  push:
+    # 手动改完配置推上来时立即重新生成一次
+    branches: [main]
+    paths:
+      - 'config/**'
+      - 'scripts/**'
+      - '.github/workflows/update.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: tvbox-update
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # 保留完整历史，git push 才能正常快进
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 抓取并合并上游源
+        env:
+          DO_CHECK: ${{ inputs.check }}
+        run: |
+          if [ "$DO_CHECK" = "true" ]; then
+            python scripts/build.py --check
+          else
+            python scripts/build.py
+          fi
+
+      - name: 提交产物
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # 保险：万一 .gitignore 里误写了 dist/，这里强制加入
+          git add -f dist/ || true
+          git add dist/ || true
+
+          if git diff --staged --quiet; then
+            echo "内容无变化，跳过提交"
+            exit 0
+          fi
+
+          git commit -m "chore: 自动更新配置 $(date '+%Y-%m-%d %H:%M:%S')"
+
+          # 显式指定分支。Actions 的 checkout 可能是 detached HEAD，
+          # 直接 `git push` 会报 "refspec does not match any"。
+          BRANCH="${GITHUB_REF_NAME:-main}"
+          git push origin "HEAD:refs/heads/$BRANCH"
+
+      - name: 输出本次统计
+        run: |
+          echo "### 本次更新结果" >> "$GITHUB_STEP_SUMMARY"
+          echo '```json' >> "$GITHUB_STEP_SUMMARY"
+          cat dist/status.json >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "订阅地址：" >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          echo "https://gh-proxy.com/https://raw.githubusercontent.com/${{ github.repository }}/main/dist/config.json" >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
