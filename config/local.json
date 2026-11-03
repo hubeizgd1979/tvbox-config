@@ -1,0 +1,31 @@
+{
+  "_说明": "你自己的内容。spider/自建站/解析器/自定义分组都写这里，会覆盖合并结果。",
+
+  "spider": "",
+  "wallpaper": "https://picsum.photos/1280/720",
+
+  "sites": [
+    {
+      "key": "my_cms",
+      "name": "我的点播",
+      "type": 1,
+      "api": "https://your-domain.com/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    }
+  ],
+
+  "parses": [
+    {
+      "name": "我的解析",
+      "type": 1,
+      "url": "https://your-domain.com/parse?url=",
+      "hosts": ["your-domain.com"]
+    }
+  ],
+
+  "lives": [],
+
+  "rules": {}
+}
