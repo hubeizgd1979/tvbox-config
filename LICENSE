@@ -1,0 +1,50 @@
+MIT License
+
+Copyright (c) 2026 zhang-gd
+
+---
+
+## 适用范围（重要，请先读这一段）
+
+本许可证**仅适用于本仓库中由作者原创编写的源代码**，具体范围为：
+
+- `scripts/` 目录下全部文件
+- `worker/` 目录下全部文件
+- 仓库根目录的 `gitee.sh`、`gh.sh`、`deploy.sh`、`deploy_gitee.sh`、
+  `install_task.py`、`auto_update.bat`
+- `config/` 目录下的 `local.json`、`sources.json`
+
+### 不在本许可证范围内的内容
+
+1. **`dist/` 目录下的所有文件**（`config.json`、`live.txt`、`live.m3u`、`status.json`）
+   是由 `scripts/build.py` 自动抓取并合并的**第三方公开配置源**聚合而成。
+   这些内容的著作权归各上游作者所有，未获得其授权。
+   本仓库仅作技术性聚合与转发，**不对这些内容作任何授权声明**。
+   各上游源及其许可证状况见 `dist/SOURCE.md`。
+
+2. 配置中引用的 `spider` / `jar` 爬虫包（第三方编译产物）、
+   以及各站点接口地址，版权归原作者所有。本仓库仅通过 URL 引用，
+   未修改亦未重新分发这些文件。
+
+3. TVBox 播放器本体（`Takagen99/Box`）采用 **GNU AGPL-3.0** 许可，
+   与本仓库无代码继承关系。
+
+---
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
