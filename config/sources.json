@@ -1,0 +1,30 @@
+{
+  "_说明": "上游订阅源列表。vod=配置源，live=直播源。改这个文件就能换源。所有地址已实测可达。_source_meta 用于生成 dist/SOURCE.md，标注各上游的许可证状况。",
+
+  "vod": [
+    "https://raw.githubusercontent.com/TVboxorg/TVbox/main/dist/official.json",
+    "https://raw.githubusercontent.com/Lightconer/tvbox-ysc-config/main/output/xiaohezi.json"
+  ],
+
+  "live": [
+    "https://raw.githubusercontent.com/Lightconer/TVBox-Sources/main/output/live.txt"
+  ],
+
+  "_source_meta": {
+    "https://raw.githubusercontent.com/TVboxorg/TVbox/main/dist/official.json": {
+      "repo": "https://gitee.com/TVboxorg/TVbox",
+      "license": "未声明（保留所有权利）",
+      "note": "TVBox 官方配置聚合"
+    },
+    "https://raw.githubusercontent.com/Lightconer/tvbox-ysc-config/main/output/xiaohezi.json": {
+      "repo": "https://gitee.com/Lightconer/tvbox-ysc-config",
+      "license": "未声明（保留所有权利）",
+      "note": "多仓配置聚合"
+    },
+    "https://raw.githubusercontent.com/Lightconer/TVBox-Sources/main/output/live.txt": {
+      "repo": "https://gitee.com/Lightconer/TVBox-Sources",
+      "license": "未声明（保留所有权利）",
+      "note": "直播源自动更新项目"
+    }
+  }
+}
