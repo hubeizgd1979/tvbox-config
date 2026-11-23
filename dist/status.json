@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-11-23 02:13:02",
+  "updated_at": "2026-11-23 10:08:48",
   "upstreams_ok": 2,
   "upstreams_total": 2,
   "sites": 164,
   "parses": 50,
-  "live_channels": 278,
+  "live_channels": 253,
   "jar_votes": {
     "http://oss4liview.moji.com/thd_file/2026/11/23/98f6124357b913bcb47d81339ca7725a.jpg;md5;924547ec8b148216d7636beb3213b60e": 83,
     "http://home.jundie.top:81/jar/top98_1.jar": 10,
